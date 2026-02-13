@@ -110,6 +110,6 @@ jobs:
             ${{ steps.prepare_body.outputs.release_body }}
             
           files: |
-            Firmware ${{ steps.download.outputs.firmware_version }}.zip
+            Firmware.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
