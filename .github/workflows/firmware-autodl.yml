@@ -79,7 +79,7 @@ jobs:
           VERSION="${{ steps.download.outputs.firmware_version }}"
           if [ -d "Firmware $VERSION" ]; then
             rm -f "Firmware $VERSION.zip"
-            zip -rj "Firmware $VERSION.zip" "Firmware $VERSION/" -i "*.nca"
+            zip -rj "Firmware.zip" "Firmware/" -i "*.nca"
           fi
 
       - name: 📝 Prepare Release Body
