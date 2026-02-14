@@ -23,6 +23,7 @@ info/latest.json
 ```
 info/[version].json
 ```
+Valid version numbers follow this format: `21.2.0`, `10.0.0`, etc.
 
 ### Credits
 Huge thanks to [THZoria](https://github.com/THZoria/NX_Firmware) for making the original NS firmware auto downloader
