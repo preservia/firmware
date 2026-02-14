@@ -98,8 +98,21 @@ jobs:
         if: steps.version_check.outputs.new_version == 'true'
         run: |
           VERSION="${{ steps.download.outputs.firmware_version }}"
+
+          # SHA256
           HASH=$(sha256sum Firmware.zip | awk '{print $1}')
-          printf '{\n  "version": "%s",\n  "hash": "%s"\n}\n' "$VERSION" "$HASH" > info.json
+
+          # Size
+          SIZE_BYTES=$(stat -c%s Firmware.zip)
+          SIZE_MB=$((SIZE_BYTES / 1024 / 1024))
+
+          # Date (UTC)
+          DATE=$(date -u +%Y-%m-%d)
+
+          # Create formatted JSON
+          printf '{\n  "version": "%s",\n  "hash": "%s",\n  "size": "%sMB",\n  "date": "%s"\n}\n' \
+            "$VERSION" "$HASH" "$SIZE_MB" "$DATE" > info.json
+
           cat info.json
 
       - name: 📤 Commit info.json to repository
