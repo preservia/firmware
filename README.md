@@ -3,23 +3,25 @@ Firmware for the Nintendo Switch. More info coming soon!
 
 [![Latest Firmware](https://img.shields.io/github/v/release/preservia/firmware?label=Firmware&color=red)](https://preservia.github.io/firmware)
 
-### URLs
-A static 'api' is available. You can...
-- Download the latest firmware
+You can always download the latest firmware using this link:
 ```
 https://preservia.github.io/firmware
 ```
-- View the latest firmware info:
+
+### API
+A static 'api' is available. You can access it from:
 ```
-https://preservia.github.io/firmware/info
+https://preservia.github.io/firmware/
 ```
-- Download a specific version:
+
+#### Endpoints
+- View info about the latest firmware version:
 ```
-https://preservia.github.io/firmware?version=21.2.0
+info/latest.json
 ```
 - View info about a specific version:
 ```
-https://preservia.github.io/firmware/info?version=21.2.0
+info/[version].json
 ```
 
 ### Credits
