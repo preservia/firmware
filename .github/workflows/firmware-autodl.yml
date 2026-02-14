@@ -98,8 +98,19 @@ jobs:
         if: steps.version_check.outputs.new_version == 'true'
         run: |
           VERSION="${{ steps.download.outputs.firmware_version }}"
-          echo "{\"version\": \"$VERSION\"}" > info.json
+          HASH=$(sha256sum Firmware.zip | awk '{print $1}')
+          printf '{\n  "version": "%s",\n  "hash": "%s"\n}\n' "$VERSION" "$HASH" > info.json
           cat info.json
+
+      - name: 📤 Commit info.json to repository
+        if: steps.version_check.outputs.new_version == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add info.json
+          git commit -m "Update info.json for firmware ${{ steps.download.outputs.firmware_version }}" || echo "No changes to commit"
+          git push
 
       - name: 📦 Create Tag and Release
         if: steps.version_check.outputs.new_version == 'true'
@@ -118,6 +129,5 @@ jobs:
             
           files: |
             Firmware.zip
-            info.json
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
