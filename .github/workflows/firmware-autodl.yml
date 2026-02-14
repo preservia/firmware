@@ -142,5 +142,6 @@ jobs:
             
           files: |
             Firmware.zip
+            info.json
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
