@@ -94,6 +94,13 @@ jobs:
               core.setOutput('release_body', changelogBody);
             }
 
+      - name: 🧾 Create info.json
+        if: steps.version_check.outputs.new_version == 'true'
+        run: |
+          VERSION="${{ steps.download.outputs.firmware_version }}"
+          echo "{\"version\": \"$VERSION\"}" > info.json
+          cat info.json
+
       - name: 📦 Create Tag and Release
         if: steps.version_check.outputs.new_version == 'true'
         uses: softprops/action-gh-release@v2
@@ -111,5 +118,6 @@ jobs:
             
           files: |
             Firmware.zip
+            info.json
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
