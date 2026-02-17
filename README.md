@@ -1,7 +1,10 @@
-# firmware
-Firmware for the Nintendo Switch. More info coming soon!
+<div align=center>
+  <img src="firmware.png" width=500>
+  <p>Firmware for the Nintendo Switch.</p>
+  <img src="https://img.shields.io/github/v/release/preservia/firmware?label=Firmware&color=red" width=100>
+</div>
 
-[![Latest Firmware](https://img.shields.io/github/v/release/preservia/firmware?label=Firmware&color=red)](https://preservia.github.io/firmware)
+---
 
 You can always download the latest firmware using this link:
 ```
