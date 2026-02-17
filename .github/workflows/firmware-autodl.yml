@@ -94,7 +94,7 @@ jobs:
               core.setOutput('release_body', changelogBody);
             }
 
-      - name: 🧾 Create info.json
+      - name: 🧾 Create metadata JSON files
         if: steps.version_check.outputs.new_version == 'true'
         run: |
           VERSION="${{ steps.download.outputs.firmware_version }}"
@@ -109,20 +109,26 @@ jobs:
           # Date (UTC)
           DATE=$(date -u +%Y-%m-%d)
 
-          # Create formatted JSON
+          mkdir -p info
+
+          # Create info file
           printf '{\n  "version": "%s",\n  "hash": "%s",\n  "size": "%sMB",\n  "date": "%s"\n}\n' \
-            "$VERSION" "$HASH" "$SIZE_MB" "$DATE" > info.json
+            "$VERSION" "$HASH" "$SIZE_MB" "$DATE" > "info/$VERSION.json"
 
-          cat info.json
+          # Create / overwrite latest.json
+          cp "info/$VERSION.json" "info/latest.json"
 
-      - name: 📤 Commit info.json to repository
+          echo "Created:"
+          ls -lah info
+
+      - name: 📤 Commit metadata to repository
         if: steps.version_check.outputs.new_version == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add info.json
-          git commit -m "Update info.json for firmware ${{ steps.download.outputs.firmware_version }}" || echo "No changes to commit"
+          git add info/
+          git commit -m "Add firmware metadata for ${{ steps.download.outputs.firmware_version }}" || echo "No changes to commit"
           git push
 
       - name: 📦 Create Tag and Release
