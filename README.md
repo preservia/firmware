@@ -1,32 +1,34 @@
 <div align=center>
-  <img src="firmware.png" width=500>
+  <p><a href="https://preservia.github.io/firmware"><img src="firmware.png" width=500></a></p>
   <p>Firmware for the Nintendo Switch.</p>
-  <img src="https://img.shields.io/github/v/release/preservia/firmware?label=Firmware&color=red" width=100>
+  <img src="https://img.shields.io/github/v/release/preservia/firmware?label=Firmware&color=00ad00" width=100>
 </div>
 
 ---
 
+This repository hosts up-to-date versions of the system firmware for the Nintendo Switch. Firmware is automatically downloaded when a new version is released and uploaded to the [releases](https://github.com/preservia/firmware/releases) page. You can always download the latest version by tapping the huge "firmware" button at the top of this page.
+
+---
+
+### URLs
 You can always download the latest firmware using this link:
 ```
 https://preservia.github.io/firmware
 ```
 
-### API
-A static 'api' is available. You can access it from:
-```
-https://preservia.github.io/firmware/
-```
+#### Firmware Info
+You can also fetch firmware version info using the links below:
 
-#### Endpoints
 - View info about the latest firmware version:
 ```
-info/latest.json
+https://preservia.github.io/firmware/info/latest.json
 ```
 - View info about a specific version:
 ```
-info/[version].json
+https://preservia.github.io/firmware/info/[version].json
 ```
-Valid version numbers follow this format: `21.2.0`, `10.0.0`, etc.
 
-### Credits
-Huge thanks to [THZoria](https://github.com/THZoria/NX_Firmware) for making the original NS firmware auto downloader
+### Thank you to...
+[THZoria](https://github.com/THZoria/NX_Firmware)! For creating the original Nintendo Switch firmware downloader workflow which this repository relies on.
+
+<sub><b>All rights reserved to their respective owners.</b></sub>
