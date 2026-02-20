@@ -1,5 +1,5 @@
 <div align=center>
-  <p><a href="https://preservia.github.io/firmware"><img src="firmware.png" width=500></a></p>
+  <p><img src="firmware.png" width=500></p>
   <p>Firmware for the Nintendo Switch.</p>
   <p><img src="https://img.shields.io/github/v/release/preservia/firmware?label=Firmware&color=00ad00" width=100></p>
 </div>
