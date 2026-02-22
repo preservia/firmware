@@ -6,7 +6,7 @@
 
 ---
 
-This repository hosts up-to-date versions of the system firmware for the Nintendo Switch. Whenever a new firmware update is released, it will be automatically downloaded and uploaded to the [releases](https://github.com/preservia/firmware/releases) page. You can always download the latest firmware version by tapping the download button below. For additional information, please view the sectios below.
+This repository hosts up-to-date versions of the system firmware for the Nintendo Switch. Whenever a new firmware update is released, it will be automatically downloaded and uploaded to the [releases](https://github.com/preservia/firmware/releases) page. You can always download the latest firmware version by tapping the download button below. For additional information, please view the sections below.
 
 ---
 
